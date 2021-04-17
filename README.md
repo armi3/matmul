@@ -7,8 +7,9 @@ python3 matmul.py matA.csv matB.csv 4 maltmul.out
 
 ## Explicación proyecto
 ### Producto punto
-Una matriz es un arreglo de numeros, para hacer el producto punto de una matriz con otra matriz se multiplica la fila n de una matriz contra la columna n de la otra matriz, celda por celda.
-Despues se suman todos los resultados, como se ve en la ilustración.
+Una matriz es un arreglo de números, para hacer el producto punto de una matriz con otra matriz se multiplica la fila n de una matriz contra la columna n de la otra matriz, celda por celda.
+
+Después se suman todos los resultados, como se ve en la ilustración.
 ![ProductoPunto.png](imgs/ProductoPunto.png)
 
 Este proceso manual de ir fila por fila toma bastante tiempo pero es posible paralelizarlo con *MultiThreading*.
@@ -32,7 +33,7 @@ Esta función va a realizar el producto punto de una selección de filas de la p
 
 ![algorithm](imgs/algorithm.png)
 
-2. Multiplicacion multihilos
+2. Multiplicación multihilos
 ```py
 def parallelMatmul(matA, matB, matC, poolSize):
   threadHandle = []
