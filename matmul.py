@@ -2,6 +2,8 @@ import numpy as np
 import sys, time
 import pandas as pd
 from threading import Thread
+import logging
+import traceback
 
 
 def geUserInput():
@@ -13,8 +15,10 @@ def geUserInput():
         poolSize = int(sys.argv[3])
       outputFilename = sys.argv[4]
       return matA, matB, poolSize, outputFilename
-    except:
+    except Exception as e:
       print("\nERROR: An exception ocurred. Check your arguments.\n")
+      logging.error(traceback.format_exc())
+
   else:
     print("\nERROR: The multiplier takes exactly 4 arguments but {} where given. Example: \n\n\t matmul.py file1.csv file2.csv pool_size (min = 1 thread) output.out\n".format(str(len(sys.argv))))
   exit()
@@ -90,5 +94,7 @@ if __name__=="__main__":
     #np.savetxt(outputFilename, matC, delimiter=',')
     pd.DataFrame(matC).to_csv(outputFilename, header=None, index=None)
     print("\n👍  Output file saved!")
-  except:
+  except Exception as e:
     print("\n👎  Exception saving matC to output file.")
+    logging.error(traceback.format_exc())
+
